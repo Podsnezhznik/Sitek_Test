@@ -76,7 +76,15 @@ namespace FIAS_Addresses_Changes
             {
                 Console.WriteLine("Загрузка архива...");
 
-                client.DownloadFile("https://fias.nalog.ru/Public/Downloads/Actual/gar_delta_xml.zip", zipFile);
+                try
+                {
+                    client.DownloadFile("https://fias.nalog.ru/Public/Downloads/Actual/gar_delta_xml.zip", zipFile);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Произошла ошибка подключения при загрузке архива, попробуйте еще раз.");
+                }
+                
 
                 Console.WriteLine("Актуальный архив загружен");
 
