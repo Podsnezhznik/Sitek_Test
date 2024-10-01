@@ -99,8 +99,10 @@ namespace FIAS_Addresses_Changes
             {
                 Directory.Move(root + "\\" + unzipFolder, root + "\\" + unzipFolder + $"_{version}");
             }
-
-            Directory.Delete(root + "\\" + unzipFolder, true);
+            else
+            {
+                Directory.Delete(root + "\\" + unzipFolder, true);
+            }
 
             return version;
         }
